@@ -37,7 +37,11 @@ func NoteByUUID(uuid string) (conv Note, err error) {
 }
 
 // Get a note by the UUID and version
-func NoteByUUIDVersion(database *sql.DB, uuid, version string) (conv Note, err error) {
+func NoteByUUIDVersion(database *sql.DB, uuid, version string) (conv Note, err error)
+return InnerNoteByUUIDVersion(Db,uuid,version)
+}
+
+func InnerNoteByUUIDVersion(database *sql.DB, uuid, version string) (conv Note, err error) {
 	conv = Note{}
 	err = database.QueryRow("SELECT id, uuid, title, content, version, created, modified FROM notes WHERE uuid = $1 AND version = $2", uuid, version).
 		Scan(&conv.Id, &conv.Uuid, &conv.Title, &conv.Content, &conv.Version, &conv.Created, &conv.Modified)
