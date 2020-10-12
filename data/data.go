@@ -14,7 +14,7 @@ var Db *sql.DB
 
 func ConnectDb() {
 	var err error
-	Db, err = sql.Open("postgres", "dbname=notes user=postgres password=123 port=5432 sslmode=disable")
+	Db, err = sql.Open("postgres", "dbname=notes port=5432 sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}

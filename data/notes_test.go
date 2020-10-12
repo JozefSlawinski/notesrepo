@@ -6,17 +6,7 @@ import (
 
 	"github.com/DATA-DOG/go-sqlmock"
 	"github.com/stretchr/testify/assert"
-	// "gitlab.mfb.io/user/graphql_server/models"
 )
-
-// func TestInit(t *testing.T) {
-// 	var err error
-// 	Db, err = sql.Open("postgres", "dbname=noteas user=postgres password=123 port=5432 sslmode=disable")
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
-// 	return
-// }
 
 func TestInnerCreateNote(t *testing.T) {
 
