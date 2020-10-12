@@ -5,14 +5,14 @@ This is the simple forum application written with Go allowing to manage notes re
 
 ## Setup
 
-###Database
+#### Database
 The application uses PostgreSQL database.
 In *data/setup.sql* file You will find script to create DB.
 
-###Configuration
+#### Configuration
 The endpoint under which the webservice will be available is set in **config.json** file (Address).
 
-###Golang
+#### Golang
 To install go visit: https://golang.org/doc/install
 
 ## Build 
