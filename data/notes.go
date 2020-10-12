@@ -37,8 +37,8 @@ func NoteByUUID(uuid string) (conv Note, err error) {
 }
 
 // Get a note by the UUID and version
-func NoteByUUIDVersion(database *sql.DB, uuid, version string) (conv Note, err error)
-return InnerNoteByUUIDVersion(Db,uuid,version)
+func NoteByUUIDVersion(uuid, version string) (conv Note, err error) {
+	return InnerNoteByUUIDVersion(Db, uuid, version)
 }
 
 func InnerNoteByUUIDVersion(database *sql.DB, uuid, version string) (conv Note, err error) {
@@ -92,7 +92,7 @@ func EditNote(uuid, title, content, version string) (conv Note, err error) {
 
 func InnerEditNote(database *sql.DB, uuid, title, content, version string) (conv Note, err error) {
 	statement := "insert into notes (uuid, title, content, version, created, modified) values ($1, $2, $3, $4, $5, $6) returning id, uuid, title, content, version, created, modified"
-	note, err := NoteByUUIDVersion(database, uuid, version)
+	note, err := InnerNoteByUUIDVersion(database, uuid, version)
 	if err != nil {
 		return
 	}
